@@ -66,6 +66,6 @@
         @endforeach
 
     </div>
-
+    {{$this->selected_countries_detailed}}
     {{-- Nothing in the world is as soft and yielding as water. --}}
 </div>
