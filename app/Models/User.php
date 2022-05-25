@@ -58,6 +58,14 @@ class User extends Authenticatable
         return $this->hasRole(['Super-Admin','admin']);
     }
 
+    /**
+     * Get the comments for the blog post.
+     */
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class);
+    }
+
 
 
 

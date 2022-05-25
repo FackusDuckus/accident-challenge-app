@@ -39,4 +39,12 @@ class Country extends Model
     protected $appends = [];
 
 
+    /**
+     * Get the comments for the blog post.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }
