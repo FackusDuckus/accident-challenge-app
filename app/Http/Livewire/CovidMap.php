@@ -57,4 +57,9 @@ class CovidMap extends Component
         $this->user->countries()->syncWithoutDetaching(Country::find($this->selected_countries));
         $this->reset('UserCountries');
     }
+
+    public function deleteCountries($user_country){
+        $this->user->countries()->detach($user_country['id']);
+        $this->reset('UserCountries');
+    }
 }
