@@ -46,12 +46,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['permissions_calculated'];
+    protected $appends = ['permissions_calculated', 'is_admin'];
 
     protected function getPermissionsCalculatedAttribute()
     {
         return $this->getAllPermissions();
     }
+
+    protected function getIsAdminAttribute()
+    {
+        return $this->hasRole(['Super-Admin','admin']);
+    }
+
+
 
 
 }

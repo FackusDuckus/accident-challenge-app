@@ -21,6 +21,7 @@
         @livewireStyles
 
         <!-- Scripts -->
+        <wireui:scripts />
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
 
         <!-- CSRF Token -->
