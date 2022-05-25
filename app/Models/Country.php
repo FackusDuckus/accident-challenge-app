@@ -40,7 +40,7 @@ class Country extends Model
 
 
     /**
-     * Get the comments for the blog post.
+     * 
      */
     public function users()
     {

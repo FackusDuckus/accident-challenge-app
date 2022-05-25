@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the comments for the blog post.
+     * 
      */
     public function countries()
     {

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CountryController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\CovidMap;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -35,6 +36,13 @@ Route::middleware('guest')->group(function () {
         ->name('register');
 
 
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('countries/index', CountryController::class)
+        ->name('countries.index');
+    Route::get('countries/index', CountryController::class)
+        ->name('countries.index');
 });
 
 Route::get('password/reset', Email::class)

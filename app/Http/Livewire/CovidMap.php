@@ -7,16 +7,32 @@ use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use App\Models\Country;
 
 class CovidMap extends Component
 {
     public $user;
+    public $user_countries;
+    public $country_list;
+    public $selected_countries;
 
     public function mount()
     {
-        $this->permissions = Permission::all();
-        $this->roles = Role::all();
+        // $this->permissions = Permission::all();
+        // $this->roles = Role::all();
         $this->user = Auth::user();
+        $this->country_list = Country::all();
+        $this->selected_countries = [];
+
+    }
+
+    // Computed Property
+
+    public function getUserCountriesProperty()
+
+    {
+
+        return Auth::user()->countries;
 
     }
 
@@ -35,5 +51,10 @@ class CovidMap extends Component
         // blade;
     
 
+    }
+
+    public function addCountries(){
+        $this->user->countries()->syncWithoutDetaching(Country::find($this->selected_countries));
+        $this->reset('UserCountries');
     }
 }
