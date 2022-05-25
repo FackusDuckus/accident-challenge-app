@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 
-class Test extends Component
+class TestClass extends Component
 {
     public function mount()
     {
