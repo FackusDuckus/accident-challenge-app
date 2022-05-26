@@ -1,5 +1,10 @@
 <div class='flex flex-row justify-center min-h-screen  py-12 bg-gray-50 sm:px-6 lg:px-8 border-2'>
-    <div class='m-4 border-2 min-w-[500px] min-h-[600px] datamap-holder max-h-[800px]'>Data Map UI</div>
+    
+    
+    <div class='flex flex-col align-left m-4 border-2 min-w-[700px] min-h-[600px] datamap-holder' id='container'>
+    </div>
+    
+    
     <div class='flex-col max-h-[80vh] overflow-auto min-w-[400px] '>
         <div class='m-4 border-2  min-w-max min-h-[100px] datamap-holder flex fixed justify-end bg-white '>
             <div class='flex-col border-2 min-w-[200px] max-h-10 mt-2'>
@@ -68,5 +73,6 @@
         @endif
         
     </div>
+    {{-- <div id="container" style="position: relative; width: 500px; height: 300px;"></div> --}}
     {{-- Nothing in the world is as soft and yielding as water. --}}
 </div>

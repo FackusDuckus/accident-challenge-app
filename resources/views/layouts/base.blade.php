@@ -23,7 +23,8 @@
         <!-- Scripts -->
         <wireui:scripts />
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>

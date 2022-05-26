@@ -44,17 +44,7 @@ class CovidMap extends Component
     {
         
         return view('livewire.covid-map');
-        // return <<<'blade'
-
-        //     <div>
-        //         <div>
-        
-
-        //     </div>
-
-        // blade;
     
-
     }
 
     public function addCountries(){
