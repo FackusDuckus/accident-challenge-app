@@ -47,17 +47,18 @@ class CovidMap extends Component
     
     }
 
+
     public function addCountries(){
         $countriesQueried = Country::find($this->selected_countries);
         $this->user->countries()->syncWithoutDetaching($countriesQueried);
-        //dd($this->queryCountries($countriesQueried));
         $this->selected_countries_detailed = collect($this->selected_countries_detailed)->merge($this->queryCountries($countriesQueried));
         $this->reset('UserCountries');
     }
 
     public function deleteCountries(Country $user_country){
         $this->user->countries()->detach($user_country['id']);
-        $this->selected_countries_detailed = $this->selected_countries_detailed->except($user_country['id'])->keyBy('id');
+        //$this->selected_countries_detailed = $this->selected_countries_detailed->except($user_country['id']);
+        $this->selected_countries_detailed = $this->queryCountries($this->userCountries);
         $this->reset('UserCountries');
 
     }
