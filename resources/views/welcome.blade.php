@@ -36,7 +36,13 @@
     </div>
 
     @auth
+    <div class='flex flex-row justify-center min-h-screen  py-12 bg-gray-50 sm:px-6 lg:px-8 border-2'>
+    
+    
+        <div class='flex flex-col align-left m-4 border-2 min-w-[700px] min-h-[600px] datamap-holder' id='container'>
+        </div>
         @livewire('covid-map')
+    </div>
     @else
         <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
 
