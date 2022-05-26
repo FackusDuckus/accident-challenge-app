@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     protected function getIsAdminAttribute()
     {
-        return $this->hasRole(['Super-Admin','admin']);
+        return $this->hasRole(['Super-Admin','admin', 'editor']);
     }
 
     /**
