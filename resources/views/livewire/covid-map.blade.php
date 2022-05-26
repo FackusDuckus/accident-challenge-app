@@ -11,7 +11,7 @@
                     :async-data="route('countries.index')"
                     option-label="name"
                     option-value="id"
-                    wire:model="selected_countries"
+                    wire:model.lazy="selected_countries"
                 />
             </div>
             <div class='flex-col border-2 mt-2'>
@@ -23,49 +23,50 @@
             <p>World</p>
             <div class='flex justify-center space-x-2 mt-7 ml-4 mr-4'>
                 <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                    <div class='flex-row mt-4'>99</div>
+                    <div class='flex-row mt-4'>{{$world_data['confirmed']['value']}}</div>
                     <div class='flex-row'><h5>Active</h5></div>
                 </div>
                 <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                    <div class='flex-row mt-4'>99</div>
-                    <div class='flex-row'><h5>Active</h5></div>
+                    <div class='flex-row mt-4'>{{$world_data['recovered']['value']}}</div>
+                    <div class='flex-row'><h5>Recovered</h5></div>
                 </div>
                 <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                    <div class='flex-row mt-4'>99</div>
-                    <div class='flex-row'><h5>Active</h5></div>
+                    <div class='flex-row mt-4'>{{$world_data['deaths']['value']}}</div>
+                    <div class='flex-row'><h5>Deaths</h5></div>
                 </div>
                 <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                    <div class='flex-row mt-4'>99</div>
-                    <div class='flex-row'><h5>Active</h5></div>
+                    <div class='flex-row mt-4'>{{$world_data['total']['value'] }}</div>
+                    <div class='flex-row'><h5>Total</h5></div>
                 </div>
             </div>
         </div>
-        @foreach ($this->UserCountries as $user_country)
-            
+        @if ($this->selected_countries_detailed)
+            @foreach ($this->selected_countries_detailed as $user_country)
+                
             <div class='m-4 border-2  min-w-max min-h-[150px] datamap-holder pl-2'>
-                <p><x-button wire:click='deleteCountries({{$user_country}})' label="x" class='mt-6 max-h-[35px] max-w-[35px]' />{{$user_country->name}}</p> 
+                <p><x-button wire:click="deleteCountries({{$user_country['id']}})" label="x" class='mt-6 max-h-[35px] max-w-[35px]' />{{$user_country['name']}}</p> 
                 <div class='flex justify-center space-x-2 mt-7 ml-4 mr-4 mb-4'>
                     <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                        <div class='flex-row mt-4'>99</div>
+                        <div class='flex-row mt-4'>{{$user_country['confirmed']['value']}}</div>
                         <div class='flex-row'><h5>Active</h5></div>
                     </div>
                     <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                        <div class='flex-row mt-4'>99</div>
-                        <div class='flex-row'><h5>Active</h5></div>
+                        <div class='flex-row mt-4'>{{$user_country['recovered']['value']}}</div>
+                        <div class='flex-row'><h5>Recovered</h5></div>
                     </div>
                     <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                        <div class='flex-row mt-4'>99</div>
-                        <div class='flex-row'><h5>Active</h5></div>
+                        <div class='flex-row mt-4'>{{$user_country['deaths']['value']}}</div>
+                        <div class='flex-row'><h5>Deaths</h5></div>
                     </div>
                     <div class='border-2 boxes flex-col min-w-[20px] min-h-[75px] align-middle text-center'>
-                        <div class='flex-row mt-4'>99</div>
-                        <div class='flex-row'><h5>Active</h5></div>
+                        <div class='flex-row mt-4'>{{$user_country['total']['value'] }}</div>
+                        <div class='flex-row'><h5>Total</h5></div>
                     </div>
                 </div>
             </div>
-        @endforeach
-
+            @endforeach
+        @endif
+        
     </div>
-    {{$this->selected_countries_detailed}}
     {{-- Nothing in the world is as soft and yielding as water. --}}
 </div>
