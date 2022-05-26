@@ -45,6 +45,7 @@ function getIndiaDataAndRender() {
                     } else {
                         sum.fillKey = 'MINOR'
                     }
+                    sum.name = key;
                     mappedData[data[key]['statecode']] = sum;
 
                 })
@@ -63,11 +64,13 @@ function getIndiaDataAndRender() {
                         popupTemplate: function(geography, data) { //this function should just return a string
                             return '<div class="hoverinfo"><strong>' +
                             '<ul>' +
+                                '<li>' + 'Name: ' + data.name + '</li>' +
                                 '<li>' + 'Active: ' + data.active + '</li>' +
                                 '<li>' + 'Confirmed: ' + data.confirmed + '</li>' +
                                 '<li>' + 'Deceased: ' + data.deceased + '</li>' + 
                                 '<li>' + 'Recovered: ' + data.recovered + '</li>' +
                                 '<li>' + 'Total: ' + data.recovered + '</li>' +
+
                             '</ul>' +
                             '</strong></div>';
                           },
